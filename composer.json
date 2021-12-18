@@ -1,0 +1,22 @@
+{
+    "name": "evoke/orenji",
+    "type": "library",
+    "license": "AGPL-3-or-later",
+    "autoload": {
+        "psr-4": {
+            "Orenji\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "EVOKE",
+            "email": "evoke.lektrique@gmail.com"
+        }
+    ],
+    "require-dev": {
+        "phpunit/phpunit": "^9"
+    },
+    "require": {
+        "league/color-extractor": "0.3.*"
+    }
+}
