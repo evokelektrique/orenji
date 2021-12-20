@@ -3,6 +3,10 @@
   <span>(Under development)</span>
 </div>
 
+<p align="center">
+   This is a modified version of <a href="https://github.com/eflorit/mosaic-generator">mosaic-generator</a>, all credits to the owner.
+</p>
+
 ### Public API
 ```php
 use Orenji\Convert;
