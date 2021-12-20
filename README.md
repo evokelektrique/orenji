@@ -1,5 +1,5 @@
 <div align="center">
-  <h3>Orenji</h3>
+  <h3>🍊 Orenji - オレンジ</h3>
   <span>(Under development)</span>
 </div>
 
