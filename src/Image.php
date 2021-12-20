@@ -2,16 +2,25 @@
 
 namespace Orenji;
 
+use League\ColorExtractor\Color;
+use League\ColorExtractor\ColorExtractor;
+use League\ColorExtractor\Palette;
+
 final class Image {
 
    private $width;
    private $height;
    private $image;
+   private $tile_size;
 
-   public function __construct(string $file_name) {
+   public $database;
+
+   public function __construct(string $file_name, array $files, int $tile_size = 50) {
       $this->image = $this->create_image($file_name);
       $this->width = $this->get_image_width($this->image);
       $this->height = $this->get_image_height($this->image);
+      $this->tile_size = $this->calculate_tile_size($tile_size);
+      $this->database = $this->generate_database($files);
    }
 
    private function create_image($file_name) {
@@ -32,6 +41,29 @@ final class Image {
       }
 
       return imagesy($image);
+   }
+
+   private function calculate_tile_size($size): int {
+      return $size;
+   }
+
+   private function get_average_colors(string $file_name, int $max_colors = 5): array {
+      $palette = Palette::fromFilename($file_name);
+
+      return $palette->getMostUsedColors($max_colors);
+   }
+
+   // 1. loop images
+   // 2. get colors
+   // 3. get distances
+   private function generate_database(array $files): array {
+      foreach($files as $file) {
+         foreach($this->get_average_colors($file) as $color) {
+            // Implement
+         }
+      }
+
+      return [];
    }
 
 }
