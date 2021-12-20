@@ -2,6 +2,7 @@
 
 namespace Orenji;
 
+use Orenji\Convert;
 use League\ColorExtractor\Color;
 use League\ColorExtractor\ColorExtractor;
 use League\ColorExtractor\Palette;
@@ -57,13 +58,18 @@ final class Image {
    // 2. get colors
    // 3. get distances
    private function generate_database(array $files): array {
+      $database = [];
+
       foreach($files as $file) {
+         $colors = [];
          foreach($this->get_average_colors($file) as $color) {
-            // Implement
+            $hex = Color::fromIntToHex($color);
+            $colors[] = Convert::hex_to_rgb($hex);
+            $database[$file] = $colors;
          }
       }
 
-      return [];
+      return $database;
    }
 
 }
